@@ -3,163 +3,234 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Evaluación de pitch · ITD Mecatrónica</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<title>Summit ITDay · Evaluación de pitch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap">
 <style>
-:root{color-scheme:light;--bg:#FBFBF8;--panel:#FFFFFF;--ink:#17212B;--mute:#556270;--line:#C9D1D6;--acc:#0B5563;--tint:#E6EEF0;--on:#FFFFFF;--err:#9B2C2C;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#12181D;--panel:#1A222A;--ink:#E8EDF0;--mute:#A3AEB8;--line:#3A4650;--acc:#6CC3D3;--tint:#22303A;--on:#0B1A20;--err:#F2A0A0}}
-*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 'IBM Plex Sans',Arial,sans-serif}
-.wrap{max-width:820px;margin:0 auto;padding:20px 16px 64px}
-.top{font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);border-bottom:2px solid var(--acc);padding-bottom:7px;display:flex;justify-content:space-between;gap:8px}
-h1{font-size:28px;line-height:1.12;margin:18px 0 4px;font-weight:600;letter-spacing:-.01em}
-.lead{margin:0 0 16px;color:var(--mute);font-size:15px}
-.tabs{display:flex;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:18px}
-.tabs button{flex:1;min-height:46px;border:0;background:var(--panel);color:var(--ink);font:500 15px 'IBM Plex Sans',Arial,sans-serif;cursor:pointer}
-.tabs button[aria-pressed="true"]{background:var(--acc);color:var(--on)}
-label.f{display:block;font-size:13px;color:var(--mute);margin:0 0 4px}
-input[type=text],select,textarea{width:100%;min-height:46px;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);font:16px 'IBM Plex Sans',Arial,sans-serif}
+:root{--teal:#0C6A8D;--deep:#084A66;--yel:#F7C61C;--ink:#10242F;--sky:#CFE4F6;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.45 'Nunito',Arial,sans-serif;color:#fff;background:var(--sky)}
+.bg{position:fixed;inset:0;z-index:-1;background:var(--sky) url(Back_summitday.jpg) center/cover no-repeat}
+@media (min-aspect-ratio:1/1){.bg{background-position:center top}}
+.wrap{max-width:860px;margin:0 auto;padding:calc(18px + env(safe-area-inset-top,0px)) 22px 56px}
+header{text-align:center;padding:6px 0 18px}
+header img{width:min(300px,72%);height:auto;display:block;margin:0 auto}
+.kick{margin:10px 0 0;color:var(--deep);font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+.card{position:relative;background:var(--teal);border-radius:14px;padding:20px 18px 22px;box-shadow:0 10px 30px rgba(8,74,102,.28)}
+.card::before,.card::after{content:"";position:absolute;top:14px;bottom:14px;width:18px;background:radial-gradient(circle at 50% 50%,var(--teal) 8.5px,transparent 9px) 0 0/18px 22px repeat-y}
+.card::before{left:-9px}.card::after{right:-9px}
+.tabs{display:flex;border:2px solid var(--yel);border-radius:10px;overflow:hidden;margin-bottom:18px}
+.tabs button{flex:1;min-height:46px;border:0;background:transparent;color:#fff;font:800 15px 'Nunito',Arial,sans-serif;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--yel);color:var(--ink)}
+label.f{display:block;font-size:13px;font-weight:700;color:#DDEFF6;margin:0 0 4px}
+input[type=text],input[type=password],select,textarea{width:100%;min-height:46px;padding:10px 12px;border:0;border-radius:8px;background:#fff;color:var(--ink);font:16px 'Nunito',Arial,sans-serif}
 textarea{min-height:84px;resize:vertical}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
 @media (max-width:620px){.g2{grid-template-columns:1fr}}
-.band{display:flex;justify-content:space-between;align-items:baseline;gap:8px;background:var(--tint);padding:8px 12px;margin:22px 0 0;font-weight:600;font-size:14px}.band span{font-weight:400;color:var(--mute);font-size:13px}
-.cr{padding:12px 4px 14px;border-bottom:1px solid var(--line)}
-.cr h3{margin:0;font-size:15px;font-weight:600}.cr h3 i{font:500 12px 'IBM Plex Mono',monospace;font-style:normal;color:var(--acc);margin-right:8px}
-.cr p{margin:2px 0 10px;color:var(--mute);font-size:14px}
+.lg{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:0 0 16px}
+.lg div{background:rgba(255,255,255,.1);border-radius:8px;padding:6px 4px;text-align:center;font-size:11px;line-height:1.2;color:#DDEFF6}
+.lg b{display:block;color:var(--yel);font-size:17px}
+details.nt{background:rgba(255,255,255,.1);border-radius:8px;padding:10px 12px;margin-bottom:14px;font-size:14px}
+details.nt summary{cursor:pointer;font-weight:800}details.nt p{margin:8px 0 0}
+.info{background:rgba(255,255,255,.1);border-radius:8px;padding:10px 12px;margin-bottom:6px}
+.pill{display:inline-block;background:var(--yel);color:var(--ink);font-weight:800;font-size:12px;border-radius:99px;padding:2px 10px;margin:0 6px 4px 0}
+.info p{margin:4px 0 0;font-size:14px;color:#DDEFF6}
+.sec{margin:26px 0 4px;color:var(--yel);font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--yel);padding-bottom:5px}
+.secn{margin:6px 0 4px;font-size:14px;color:#DDEFF6;font-style:italic}
+.cr{padding:12px 0 14px;border-bottom:1px solid rgba(255,255,255,.2)}
+.cr h3{margin:0;font-size:16px;font-weight:800}.cr h3 i{font-style:normal;color:var(--yel);margin-right:8px}
+.cr p{margin:2px 0 10px;color:#DDEFF6;font-size:14px}.cr h3+.ch{margin-top:8px}
 .ch{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .ch label{position:relative}.ch input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
-.ch span{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50px;border:1px solid var(--line);border-radius:6px;background:var(--panel);font:500 17px 'IBM Plex Mono',monospace}
-.ch small{font:400 10.5px 'IBM Plex Sans',Arial,sans-serif;color:var(--mute)}
-.ch input:checked+span{background:var(--acc);border-color:var(--acc);color:var(--on)}.ch input:checked+span small{color:var(--on)}
-.ch input:focus-visible+span{outline:3px solid var(--acc);outline-offset:2px}
-.sum{position:sticky;bottom:0;margin:22px -16px 0;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--panel);border-top:2px solid var(--acc);display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
-.sum div{font-size:11px;color:var(--mute)}.sum b{display:block;font:500 18px 'IBM Plex Mono',monospace;color:var(--ink)}
-.btn{min-height:50px;width:100%;margin-top:18px;border:0;border-radius:6px;background:var(--acc);color:var(--on);font:600 16px 'IBM Plex Sans',Arial,sans-serif;cursor:pointer}
-.btn.alt{background:var(--panel);color:var(--acc);border:1px solid var(--acc);width:auto;padding:0 16px;margin:0}
-.msg{margin:12px 0 0;font-size:14px;min-height:20px}.msg.err{color:var(--err)}
-.note{border:1px solid var(--line);background:var(--tint);padding:10px 12px;border-radius:6px;font-size:14px;margin-bottom:14px}
-.sc{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:600px;font-size:14px}
-th{background:var(--acc);color:var(--on);font-weight:600;text-align:left;padding:9px 10px;font-size:12.5px}
-td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}td.n,th.n{text-align:right;font-family:'IBM Plex Mono',monospace}
-tr.tot td{font-weight:600}
-details{margin-top:6px}summary{cursor:pointer;color:var(--acc);font-size:13px}
-details ul{margin:6px 0 0;padding-left:18px;color:var(--mute);font-size:13px}
-.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
-.hide{display:none}
+.ch span{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border:2px solid rgba(255,255,255,.35);border-radius:10px;background:rgba(255,255,255,.1);font:800 18px 'Nunito',Arial,sans-serif}
+.ch small{font:600 10.5px 'Nunito',Arial,sans-serif;color:#DDEFF6}
+.ch input:checked+span{background:var(--yel);border-color:var(--yel);color:var(--ink)}.ch input:checked+span small{color:var(--ink)}
+.ch input:focus-visible+span{outline:3px solid #fff;outline-offset:2px}
+.st{background:rgba(8,74,102,.45);border-radius:10px;padding:10px 14px 4px;margin-top:12px}
+.sth{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}.sth b{font-size:17px}.sth span{color:var(--yel);font-weight:800;font-size:14px}
+.sk{display:flex;gap:8px;align-items:center;font-size:13px;color:#DDEFF6;margin-top:4px}.sk input{width:18px;height:18px}
+.sum{position:sticky;bottom:0;margin:24px -18px 0;padding:10px 18px calc(10px + env(safe-area-inset-bottom,0px));background:var(--deep);border-top:3px solid var(--yel);display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.sum div{font-size:11.5px;color:#DDEFF6;font-weight:700}.sum b{display:block;font-size:19px;color:var(--yel)}
+.btn{min-height:52px;width:100%;margin-top:18px;border:0;border-radius:10px;background:var(--yel);color:var(--ink);font:800 16px 'Nunito',Arial,sans-serif;cursor:pointer}
+.btn:disabled{opacity:.6}.btn.alt{background:transparent;color:#fff;border:2px solid var(--yel);width:auto;padding:0 16px;margin:0;min-height:44px}
+.msg{margin:12px 0 0;font-size:14px;min-height:20px;font-weight:600}.msg.err{color:#FFD9A0}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.bar select{width:auto;min-height:44px;flex:1;min-width:150px}
+.sc{overflow-x:auto;background:#fff;border-radius:10px;color:var(--ink)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
+th{background:var(--deep);color:#fff;text-align:left;padding:9px 10px;font-size:12.5px}
+td{padding:9px 10px;border-bottom:1px solid #D5DEE3;vertical-align:top}td.n,th.n{text-align:right}
+details.d{margin-top:6px}details.d summary{cursor:pointer;color:var(--teal);font-size:13px;font-weight:800}
+details.d b{display:block;margin:8px 0 2px;font-size:12.5px}details.d ul{margin:0;padding-left:18px;color:#3F4B57;font-size:13px}
+.hide{display:none!important}
+footer{text-align:center;color:var(--deep);font-weight:700;font-size:12px;margin-top:18px}
 </style>
 </head>
 <body>
+<div class="bg"></div>
 <div class="wrap">
-<div class="top"><span>ITD · Modalidad de Mecatrónica</span><span>Jurados externos</span></div>
-<h1>Evaluación de pitch</h1>
-<p class="lead">Una marca de 1 a 5 por criterio. Los totales se calculan solos.</p>
+<header><img src="Logo_summit.png" alt="Summit ITDay"><p class="kick">Guía de evaluación FITD · Grado 11° · Formato Feria y MVP</p></header>
+<main class="card">
 <div class="tabs"><button id="t1" aria-pressed="true">Evaluar</button><button id="t2" aria-pressed="false">Resultados</button></div>
 
 <section id="v1">
+<div class="lg"><div><b>5</b>Superior<br>Dominio con evidencia</div><div><b>4</b>Alto<br>Sólido</div><div><b>3</b>Satisfactorio<br>Lo esencial</div><div><b>2</b>Básico<br>Parcial</div><div><b>1</b>Bajo<br>No lo demuestra</div></div>
+<details class="nt"><summary>Notas de orientación para el jurado</summary>
+<p><b>No premie solo lo visual:</b> un stand hermoso o un excelente marketing no reemplaza la evidencia técnica y el funcionamiento del MVP.</p>
+<p><b>Contexto de las modalidades:</b> un MVP en Alimentos puede ser una degustación con empaque final; en Gestión, un modelo de negocio validado con primeras ventas; y en Mecatrónica, un equipo o software funcional.</p>
+<p><b>Cierre con una acción:</b> al finalizar en el stand, brinde al estudiante una recomendación concreta orientada al mundo real o al mercado, no un simple “sigan trabajando”.</p></details>
 <div class="g2">
 <div><label class="f" for="pj">Proyecto</label><select id="pj"><option value="">Seleccione un proyecto…</option></select></div>
 <div><label class="f" for="ev">Nombre del evaluador</label><input id="ev" type="text" autocomplete="name"></div>
 </div>
-<div id="form"></div>
-<label class="f" for="fo" style="margin-top:18px">Principal fortaleza del proyecto</label><textarea id="fo"></textarea>
-<label class="f" for="re" style="margin-top:12px">Recomendación concreta y verificable</label><textarea id="re"></textarea>
-<div class="sum"><div>Técnico<b id="sT">– /25</b></div><div>Comunic.<b id="sC">– /35</b></div><div>Total<b id="sA">– /60</b></div><div>Nivel<b id="sN">–</b></div></div>
+<div id="info" class="info hide"></div>
+<div id="fw" class="hide">
+<div class="sec">Sección 1 · Evaluación grupal</div>
+<p class="secn">El proyecto, el MVP y el stand. Califica el producto entregable y el montaje del equipo en conjunto.</p>
+<div id="gform"></div>
+<div class="sec">Sección 2 · Evaluación individual</div>
+<p class="secn">El expositor. Califique a cada estudiante durante su intervención en el stand; la pregunta orientadora es la misma para todos.</p>
+<div id="iform"></div>
+<div class="sec">Retroalimentación al equipo</div>
+<label class="f" for="fo" style="margin-top:10px">Principal fortaleza del proyecto</label><textarea id="fo"></textarea>
+<label class="f" for="re" style="margin-top:12px">Recomendación concreta orientada al mundo real o al mercado</label><textarea id="re"></textarea>
+<div class="sum"><div>Grupal<b id="sG">0 /30</b></div><div>Calificados<b id="sP">0 /6</b></div><div>Nivel grupal<b id="sN">–</b></div></div>
 <button class="btn" id="go">Guardar evaluación</button>
+</div>
 <p class="msg" id="msg" role="status"></p>
 </section>
 
 <section id="v2" class="hide">
-<div id="gate" class="note"><label class="f" for="pw">Contraseña para ver los resultados</label><div style="display:flex;gap:8px"><input id="pw" type="password" inputmode="numeric" autocomplete="off"><button class="btn alt" id="pwb" style="min-height:46px">Entrar</button></div><p class="msg err" id="pwm"></p></div>
+<div id="gate"><label class="f" for="pw">Contraseña para ver los resultados</label><div style="display:flex;gap:8px"><input id="pw" type="password" autocomplete="off"><button class="btn alt" id="pwb">Entrar</button></div><p class="msg err" id="pwm"></p></div>
 <div id="res" class="hide">
-<div class="bar"><span id="cnt" style="color:var(--mute);font-size:14px"></span><button class="btn alt" id="csv">Descargar CSV</button></div>
-<div class="sc"><table><thead><tr><th>Proyecto</th><th class="n">Eval.</th><th class="n">Técnico /25</th><th class="n">Comunic. /35</th><th class="n">Total /60</th><th class="n">%</th><th>Nivel</th></tr></thead><tbody id="rb"></tbody></table></div>
-<p class="msg" style="color:var(--mute)">Promedio de todos los evaluadores por proyecto. Porcentaje = total / 60 × 100. Se actualiza cada 30 segundos.</p>
+<div class="bar"><select id="fm" aria-label="Modalidad"><option value="">Todas las modalidades</option><option>Procesamiento de alimentos</option><option>Gestión de empresas</option><option>Mecatrónica</option></select><select id="so" aria-label="Orden"><option value="az">Orden alfabético</option><option value="top">Mayor puntaje grupal</option></select><button class="btn alt" id="csv">Descargar CSV</button></div>
+<p class="msg" id="cnt" style="margin:0 0 10px"></p>
+<div class="sc"><table><thead><tr><th>Proyecto</th><th>Modalidad</th><th class="n">Eval.</th><th class="n">Grupal /30</th><th class="n">%</th><th>Nivel</th></tr></thead><tbody id="rb"></tbody></table></div>
+<p class="msg">Promedio de todos los evaluadores. El total por estudiante (/50) suma su promedio individual (/20) y el promedio grupal de su proyecto (/30). Se actualiza cada 30 segundos.</p>
 </div>
 </section>
+</main>
+<footer>Summit ITDay · Instituto Tecnológico de Dosquebradas</footer>
 </div>
 <script>
-const PROJ=["CITRAGROW","HOOPCOACH","ROUTECHEF","AGORA","UV-SAFE","ORDIX","QUINTANA","CCH ENERGETICS","PREVIX","VIDEOJUEGO — Martín Naranjo"];
-const CR=[["Problemática","¿Define el problema, a quién afecta y con qué evidencia?"],["Justificación","¿Explica por qué importa resolverlo y para quién?"],["Objetivos","¿Son claros, coherentes con el problema y verificables?"],["Metodología","¿Muestra etapas, herramientas, decisiones técnicas y pruebas?"],["Propuesta de solución","¿Funciona y responde al problema? ¿Qué está hecho y qué es proyecto?"],["Capacidad discursiva","Apertura, desarrollo y cierre ordenados; usa bien el tiempo."],["Manejo del escenario","Contacto visual, seguridad y coordinación entre integrantes."],["Claridad","Explica lo complejo sin perder rigor; ejemplos o demostración."],["Apropiación del conocimiento","¿Domina las decisiones de diseño, las pruebas y las limitaciones?"],["Innovación y diferenciación","¿Qué aporta frente a lo que ya existe? Tecnología no es innovación."],["Lenguaje técnico","Conceptos usados con precisión y pertinencia."],["Respuesta a las preguntas","Escucha, argumenta con evidencia y admite lo no validado."]];
+const API="https://script.google.com/macros/s/AKfycbzr8ejyWX6VnAvzvkjK3T0-bJpXVkYoWLE5Pd-kLFrdM-K3oTBlNBEB5Ygo1HeSqXof/exec";
+const CLAVE="notas_summit";
+const PROJ=[{"n":"Airide","m":["Mecatrónica"],"e":["Isabela Lozano Anacona","Gabriela Orozco Espinosa"]},{"n":"Alfair","m":["Procesamiento de alimentos"],"e":["Samuel Carmona Urrego"]},{"n":"Cleanster","m":["Gestión de empresas"],"e":["Maria Paula Posso Parra","Salomé Veléz Jimenez","Simon Zuleta Leal"]},{"n":"Convivía","m":["Gestión de empresas"],"e":["Sofía Castaño Mejia"]},{"n":"Ecorute","m":["Gestión de empresas"],"e":["Sebastian Alvarez Restrepo","Fabiana Valencia Londoño","Sofia Ospina Yepes"]},{"n":"Figrhmetrics","m":["Mecatrónica"],"e":["Samuel Álvarez Gomez"]},{"n":"Firstrack","m":["Gestión de empresas"],"e":["Daniela Garcia Valencia","Sophia Merchan Perez","Ana Maria Rua Guevara"]},{"n":"Genic","m":["Gestión de empresas"],"e":["Maria Fernanda Cardona Zuluaga","Diego Sebastian Jordan López"]},{"n":"Gorillaelexir","m":["Procesamiento de alimentos"],"e":["Daniel Caicedo Gil","Jose Luis Aguirre Betancur"]},{"n":"Heatfry","m":["Mecatrónica"],"e":["Samuel Osorio Diaz","Miguel Ángel Marín Gañán"]},{"n":"Katsa","m":["Gestión de empresas"],"e":["Dylan Galeano Vergara","Juan Esteban Londoño Granada","Miguel Giraldo Zamora"]},{"n":"Luma","m":["Mecatrónica"],"e":["Samuel Arredondo Ramirez"]},{"n":"Meiloop","m":["Procesamiento de alimentos","Mecatrónica"],"e":["Jacobo Berrio Osorio","Laura Valentina Ramírez Jaramillo"]},{"n":"Miller","m":["Mecatrónica"],"e":["Miguel Angel Torres Correa"]},{"n":"Moobird","m":["Mecatrónica"],"e":["Geraldine Cardona Sepulveda"]},{"n":"Naya","m":["Procesamiento de alimentos"],"e":["Dominic Santiago Aguilar Pulido","Juan David Llanos Velez"]},{"n":"Neosicher","m":["Gestión de empresas"],"e":["Salome Arbelaez Buitrago","Isabela Rios Restrepo"]},{"n":"Neoxalle","m":["Mecatrónica"],"e":["Jeronimo Tobon Marín","Pablo Villa Muñoz"]},{"n":"Nordsign","m":["Mecatrónica"],"e":["Emeli Saray Arias Villada","Salome Espinal Correa","Juan Roman Ramirez Castañeda"]},{"n":"Novanyok","m":["Mecatrónica"],"e":["Juan José Gómez Morales","Maria Camila Londoño Moreno"]},{"n":"Oryon","m":["Procesamiento de alimentos"],"e":["Andres Felipe Idarraga Loaiza","Kyara Rodriguez Molina","Gabriela Villada Rubio"]},{"n":"Refreshcan","m":["Gestión de empresas"],"e":["Jacobo Lopez Villa","Juan Jose Ocampo Villa","Samuel Villegas Sanchez"]},{"n":"Showise","m":["Procesamiento de alimentos","Mecatrónica","Gestión de empresas"],"e":["Miguel Angel Ospina Parra","Emmanuel Castaño Gonzalez","Santiago Ballesteros Franco"]},{"n":"Tomacare","m":["Mecatrónica"],"e":["Esteban Castaño Castaño"]},{"n":"Vitalflame","m":["Procesamiento de alimentos","Gestión de empresas"],"e":["Juan Estevan Giraldo Hurtado","Simon Arango Diez","Samuel Florez Echeverry"]},{"n":"Zirelsafe","m":["Procesamiento de alimentos"],"e":["Laura Alejandra Espitia Valencia","Isabella Trejos Guapacha"]},{"n":"Zyfrox","m":["Procesamiento de alimentos"],"e":["Jean Paul Patiño Ramirez","David Posada Ospina","Néstor Andrés Ramírez Portillo"]}];
+const GC=[["Problema y Justificación","¿Define claramente el problema, su impacto y el valor que genera resolverlo para el mercado o usuario?"],["Desarrollo y Metodología","¿Evidencia un proceso claro (decisiones de ingeniería, formulación de alimentos o validación financiera) y las herramientas utilizadas?"],["MVP / Prototipo Final","(Nivel 11°) ¿El producto, servicio o modelo está funcional y validado? ¿Responde de forma tangible y real a la problemática planteada?"],["Documentación Técnica","¿Presenta la documentación exigida por su modalidad (ficha técnica, placa de características, tabla nutricional, lote y/o fechas de vencimiento)?"],["Identidad de Marca y Stand","¿El stand es atractivo y profesional? ¿Hay coherencia en su marketing, colores corporativos, logo y elementos publicitarios impresos o digitales?"],["Innovación y Diferenciación","¿Qué valor único aporta el MVP frente a lo que ya existe en el mercado (tecnología, nuevos ingredientes/procesos o modelo de negocio)?"]];
+const IC=[["Claridad y Discurso","¿Explica el proyecto de manera ordenada, concisa y logra hacer entender lo complejo sin perder rigor?"],["Apropiación del Conocimiento","¿Domina las decisiones de diseño, los fundamentos (técnicos, financieros o químicos/nutricionales) y las pruebas realizadas al MVP?"],["Lenguaje Técnico","¿Utiliza los conceptos y términos propios de su modalidad técnica con precisión y pertinencia durante la charla?"],["Respuesta a Preguntas","¿Escucha atentamente al jurado, argumenta sus respuestas con evidencia y admite de forma honesta lo que no está validado?"]];
 const LV=["Bajo","Básico","Satisf.","Alto","Superior"];
 const $=s=>document.querySelector(s);
-const slug=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60);
-const lvl=t=>t>=54?"Superior":t>=48?"Alto":t>=36?"Satisfactorio":t>=24?"Básico":"Bajo";
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const f1=n=>n.toFixed(1).replace(".",",");
-const API="https://script.google.com/macros/s/AKfycbzr8ejyWX6VnAvzvkjK3T0-bJpXVkYoWLE5Pd-kLFrdM-K3oTBlNBEB5Ygo1HeSqXof/exec";
-const CLAVE="1088";
-let rows=[];
+const sum=a=>a.reduce((x,y)=>x+y,0);
+const lvlP=p=>p>=90?"Superior":p>=80?"Alto":p>=60?"Satisfactorio":p>=40?"Básico":"Bajo";
+const val=n=>{const r=document.querySelector('input[name="'+n+'"]:checked');return r?+r.value:0};
+const cur=()=>PROJ.find(p=>p.n===$("#pj").value);
+const chips=(name,aria)=>'<div class="ch" role="radiogroup" aria-label="'+esc(aria)+'">'+[1,2,3,4,5].map(k=>'<label><input type="radio" name="'+name+'" value="'+k+'"><span>'+k+'<small>'+LV[k-1]+'</small></span></label>').join("")+'</div>';
+let G=[],I=[];
 
-// Formulario
-PROJ.forEach(p=>{const o=document.createElement("option");o.value=p;o.textContent=p;$("#pj").appendChild(o)});
-const form=$("#form");
-CR.forEach((c,i)=>{
-  if(i===0||i===5){const b=document.createElement("div");b.className="band";b.innerHTML=i===0?"Técnico y metodológico<span>25 puntos</span>":"Comunicativo, argumentativo e innovador<span>35 puntos</span>";form.appendChild(b)}
-  const d=document.createElement("div");d.className="cr";
-  d.innerHTML='<h3><i>'+String(i+1).padStart(2,"0")+'</i>'+c[0]+'</h3><p>'+c[1]+'</p><div class="ch" role="radiogroup" aria-label="'+c[0]+'">'+[1,2,3,4,5].map(k=>'<label><input type="radio" name="c'+i+'" value="'+k+'"><span>'+k+'<small>'+LV[k-1]+'</small></span></label>').join("")+'</div>';
-  form.appendChild(d);
-});
-const scores=()=>CR.map((_,i)=>{const r=document.querySelector('input[name="c'+i+'"]:checked');return r?+r.value:0});
-function calc(s){const t=s.slice(0,5).reduce((a,b)=>a+b,0),c=s.slice(5).reduce((a,b)=>a+b,0);return{t,c,a:t+c,done:s.every(x=>x>0)}}
-function upd(){const k=calc(scores());$("#sT").textContent=k.t+" /25";$("#sC").textContent=k.c+" /35";$("#sA").textContent=k.a+" /60";$("#sN").textContent=k.done?lvl(k.a):"–"}
-form.addEventListener("change",upd);
+PROJ.forEach(p=>{const o=document.createElement("option");o.value=p.n;o.textContent=p.n;$("#pj").appendChild(o)});
+$("#gform").innerHTML=GC.map((c,i)=>'<div class="cr"><h3><i>'+String(i+1).padStart(2,"0")+'</i>'+esc(c[0])+'</h3><p>'+esc(c[1])+'</p>'+chips("g"+i,c[0])+'</div>').join("");
 
-function prefill(){}
+function buildInd(){
+  const p=cur();
+  $("#iform").innerHTML=p.e.map((nm,j)=>'<div class="st"><div class="sth"><b>'+esc(nm)+'</b><span id="sv'+j+'"></span></div><label class="sk"><input type="checkbox" id="sk'+j+'"> No estuvo presente / no evaluar</label><div id="sb'+j+'">'+IC.map((c,k)=>'<div class="cr"><h3><i>'+String(k+7).padStart(2,"0")+'</i>'+esc(c[0])+'</h3>'+(j===0?'<p>'+esc(c[1])+'</p>':'')+chips("m"+j+"c"+k,nm+" — "+c[0])+'</div>').join("")+'</div></div>').join("");
+  p.e.forEach((_,j)=>$("#sk"+j).addEventListener("change",()=>{$("#sb"+j).classList.toggle("hide",$("#sk"+j).checked);upd()}));
+}
+function upd(){
+  const p=cur();if(!p)return;
+  const g=GC.map((_,i)=>val("g"+i)),gT=sum(g),gDone=g.every(x=>x>0);
+  let need=6,done=g.filter(x=>x).length;
+  p.e.forEach((_,j)=>{
+    const sk=$("#sk"+j).checked,s=IC.map((_,k)=>val("m"+j+"c"+k)),iT=sum(s);
+    if(!sk){need+=4;done+=s.filter(x=>x).length}
+    $("#sv"+j).textContent=sk?"No evaluado":s.every(x=>x>0)?iT+" /20"+(gDone?" · total "+(gT+iT)+" /50":""):(iT?iT+" /20 …":"");
+  });
+  $("#sG").textContent=gT+" /30";$("#sP").textContent=done+" /"+need;$("#sN").textContent=gDone?lvlP(gT/30*100):"–";
+}
 function setMsg(t,err){const m=$("#msg");m.textContent=t;m.className="msg"+(err?" err":"")}
-try{const v=localStorage.getItem("itd-evaluador");if(v)$("#ev").value=v}catch(e){}
-$("#pj").addEventListener("change",prefill);
-$("#ev").addEventListener("change",()=>{try{localStorage.setItem("itd-evaluador",$("#ev").value.trim())}catch(e){}prefill()});
+$("#pj").addEventListener("change",()=>{
+  const p=cur();setMsg("");
+  $("#fw").classList.toggle("hide",!p);$("#info").classList.toggle("hide",!p);
+  if(!p)return;
+  document.querySelectorAll("#gform input").forEach(r=>r.checked=false);$("#fo").value="";$("#re").value="";
+  $("#info").innerHTML=p.m.map(m=>'<span class="pill">'+esc(m)+'</span>').join("")+'<p>Integrantes: '+p.e.map(esc).join(", ")+'</p>';
+  buildInd();upd();
+});
+$("#fw").addEventListener("change",upd);
+try{const v=localStorage.getItem("summit-evaluador");if(v)$("#ev").value=v}catch(e){}
+$("#ev").addEventListener("change",()=>{try{localStorage.setItem("summit-evaluador",$("#ev").value.trim())}catch(e){}});
 
 $("#go").addEventListener("click",async()=>{
-  const s=scores(),k=calc(s),ev=$("#ev").value.trim();
-  if(API.startsWith("PEGUE"))return setMsg("Falta configurar la URL del script (ver instrucciones).",true);
-  if(!$("#pj").value)return setMsg("Seleccione un proyecto.",true);
+  const p=cur(),ev=$("#ev").value.trim();
+  if(!p)return setMsg("Seleccione un proyecto.",true);
   if(!ev)return setMsg("Escriba el nombre del evaluador.",true);
-  if(!k.done)return setMsg("Faltan criterios por calificar ("+s.filter(x=>!x).length+").",true);
+  const g=GC.map((_,i)=>val("g"+i));
+  if(!g.every(x=>x>0))return setMsg("Faltan criterios grupales por calificar ("+g.filter(x=>!x).length+").",true);
+  const ind=[];
+  for(let j=0;j<p.e.length;j++){
+    if($("#sk"+j).checked)continue;
+    const s=IC.map((_,k)=>val("m"+j+"c"+k));
+    if(!s.every(x=>x>0))return setMsg("Faltan criterios por calificar para "+p.e[j]+".",true);
+    const tot=sum(s);ind.push({nombre:p.e[j],s,tot,pct:tot/20*100,nivel:lvlP(tot/20*100)});
+  }
+  const gTot=sum(g);
   $("#go").disabled=true;setMsg("Guardando…");
   try{
-    const doc={project:$("#pj").value,evaluador:ev,s,tec:k.t,com:k.c,total:k.a,pct:Math.round(k.a/60*1000)/10,nivel:lvl(k.a),fortaleza:$("#fo").value.trim(),recomendacion:$("#re").value.trim()};
-    const r=await fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(doc)});
+    const r=await fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({project:p.n,modalidad:p.m.join(" / "),evaluador:ev,g,gTot,gPct:Math.round(gTot/30*1000)/10,gNivel:lvlP(gTot/30*100),fortaleza:$("#fo").value.trim(),recomendacion:$("#re").value.trim(),ind})});
     const j=await r.json();if(!j.ok)throw new Error(j.error);
-    setMsg("Evaluación guardada: "+k.a+" de 60 puntos ("+lvl(k.a)+"). Si vuelve a guardar el mismo proyecto con su nombre, se actualiza.");
+    setMsg("Evaluación de "+p.n+" guardada ("+ind.length+" estudiante"+(ind.length===1?"":"s")+"). Si la envía de nuevo con su nombre, se actualiza.");
   }catch(e){setMsg("No se pudo guardar. Revise su conexión e inténtelo de nuevo.",true)}
   $("#go").disabled=false;
 });
 
 // Resultados
+function addList(d,title,items){if(!items.length)return;const b=document.createElement("b");b.textContent=title;const ul=document.createElement("ul");items.forEach(t=>{const li=document.createElement("li");li.textContent=t;ul.appendChild(li)});d.append(b,ul)}
 function renderRes(){
-  const tb=$("#rb");tb.textContent="";
-  $("#cnt").textContent=rows.length+(rows.length===1?" evaluación registrada":" evaluaciones registradas");
-  PROJ.forEach(p=>{
-    const r=rows.filter(x=>x.project===p),n=r.length,tr=document.createElement("tr");
-    const avg=k=>n?r.reduce((a,x)=>a+(+x[k]||0),0)/n:0;
-    const c0=document.createElement("td");c0.textContent=p;c0.style.fontWeight="600";
-    if(n){const dt=document.createElement("details"),sm=document.createElement("summary"),ul=document.createElement("ul");sm.textContent="Detalle";dt.append(sm,ul);
-      CR.forEach((c,i)=>{const li=document.createElement("li");li.textContent=(i+1)+". "+c[0]+": "+f1(r.reduce((a,x)=>a+((x.s||[])[i]||0),0)/n);ul.appendChild(li)});
-      r.forEach(x=>{const li=document.createElement("li");li.textContent="Evaluador "+x.evaluador+": "+x.total+" /60";ul.appendChild(li)});
-      c0.appendChild(dt)}
+  const f=$("#fm").value,tb=$("#rb");tb.textContent="";
+  $("#cnt").textContent=G.length+" evaluaciones grupales · "+I.length+" individuales";
+  const list=PROJ.filter(p=>!f||p.m.includes(f)).map(p=>{const r=G.filter(x=>x.project===p.n);return{p,r,n:r.length,a:r.length?sum(r.map(x=>+x.tot||0))/r.length:null}});
+  if($("#so").value==="top")list.sort((x,y)=>(y.a===null?-1:y.a)-(x.a===null?-1:x.a));
+  list.forEach(({p,r,n,a})=>{
+    const tr=document.createElement("tr"),c0=document.createElement("td");
+    c0.textContent=p.n;c0.style.fontWeight="800";
+    if(n){
+      const d=document.createElement("details");d.className="d";const sm=document.createElement("summary");sm.textContent="Detalle";d.appendChild(sm);
+      addList(d,"Promedio por criterio (grupal)",GC.map((c,i)=>(i+1)+". "+c[0]+": "+f1(sum(r.map(x=>(x.s||[])[i]||0))/n)));
+      addList(d,"Estudiantes (individual /20 · total /50)",p.e.map(nm=>{const ri=I.filter(x=>x.project===p.n&&x.est===nm),ia=ri.length?sum(ri.map(x=>+x.tot||0))/ri.length:null;return nm+": "+(ia===null?"sin evaluar":f1(ia)+" /20 · total "+f1(a+ia)+" /50")+" ("+ri.length+" eval.)"}));
+      const cm=[];r.forEach(x=>{if(x.fo)cm.push("Fortaleza ("+x.ev+"): "+x.fo);if(x.re)cm.push("Recomendación ("+x.ev+"): "+x.re)});
+      addList(d,"Comentarios",cm);c0.appendChild(d);
+    }
     tr.appendChild(c0);
-    [n,n?f1(avg("tec")):"–",n?f1(avg("com")):"–",n?f1(avg("total")):"–",n?f1(avg("total")/60*100):"–"].forEach(v=>{const td=document.createElement("td");td.className="n";td.textContent=v;tr.appendChild(td)});
-    const tl=document.createElement("td");tl.textContent=n?lvl(avg("total")):"Sin evaluaciones";tr.appendChild(tl);
+    const mt=document.createElement("td");mt.textContent=p.m.join(" / ");tr.appendChild(mt);
+    [n,n?f1(a):"–",n?f1(a/30*100):"–"].forEach(v=>{const td=document.createElement("td");td.className="n";td.textContent=v;tr.appendChild(td)});
+    const tl=document.createElement("td");tl.textContent=n?lvlP(a/30*100):"Sin evaluar";tr.appendChild(tl);
     tb.appendChild(tr);
   });
 }
-$("#csv").addEventListener("click",async()=>{
-  const q=v=>'"'+String(v==null?"":v).replace(/"/g,'""')+'"';
-  const h=["Proyecto","Evaluador",...CR.map((c,i)=>(i+1)+". "+c[0]),"Técnico /25","Comunicativo /35","Total /60","Porcentaje","Nivel","Fortaleza","Recomendación","Fecha"];
-  const body=rows.slice().sort((a,b)=>PROJ.indexOf(a.project)-PROJ.indexOf(b.project)).map(x=>[x.project,x.evaluador,...(x.s||[]),x.tec,x.com,x.total,x.pct,x.nivel,x.fortaleza,x.recomendacion,x.at].map(q).join(";"));
-  const b=new Blob(["\ufeff"+[h.map(q).join(";"),...body].join("\r\n")],{type:"text/csv;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="evaluaciones_pitch_ITD.csv";document.body.appendChild(a);a.click();a.remove();
+$("#fm").onchange=$("#so").onchange=renderRes;
+$("#csv").addEventListener("click",()=>{
+  const q=v=>'"'+String(v==null?"":v).replace(/"/g,'""')+'"',k=s=>String(s).trim().toLowerCase();
+  const h=["Proyecto","Modalidad","Evaluador","Estudiante",...GC.map((c,i)=>(i+1)+". "+c[0]),...IC.map((c,i)=>(i+7)+". "+c[0]),"Total grupal /30","Total individual /20","Total /50","Porcentaje","Nivel","Fortaleza","Recomendación","Fecha"];
+  const out=[];
+  G.slice().sort((a,b)=>a.project<b.project?-1:1).forEach(x=>{
+    const ri=I.filter(y=>y.project===x.project&&k(y.ev)===k(x.ev));
+    (ri.length?ri:[null]).forEach(y=>{
+      const tot=y?(+x.tot)+(+y.tot):"";
+      out.push([x.project,x.mod,x.ev,y?y.est:"",...(x.s||[]),...(y?y.s:["","","",""]),x.tot,y?y.tot:"",tot,tot!==""?Math.round(tot/50*1000)/10:"",tot!==""?lvlP(tot/50*100):x.nivel,x.fo,x.re,x.at].map(q).join(";"));
+    });
+  });
+  const b=new Blob(["\ufeff"+[h.map(q).join(";"),...out].join("\r\n")],{type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="evaluaciones_summit_itday.csv";document.body.appendChild(a);a.click();a.remove();
 });
 
-// Pestañas y contraseña de resultados
+// Pestañas y contraseña
 function tab(n){$("#v1").classList.toggle("hide",n!==1);$("#v2").classList.toggle("hide",n!==2);$("#t1").setAttribute("aria-pressed",n===1);$("#t2").setAttribute("aria-pressed",n===2)}
 $("#t1").onclick=()=>tab(1);$("#t2").onclick=()=>tab(2);
-async function loadRes(){try{const r=await fetch(API+"?clave="+encodeURIComponent(CLAVE));const j=await r.json();if(j.ok){rows=j.rows;renderRes()}}catch(e){}}
+async function loadRes(){try{const r=await fetch(API+"?clave="+encodeURIComponent(CLAVE));const j=await r.json();if(j.ok){G=j.g;I=j.i;renderRes()}}catch(e){}}
 function unlock(){
-  if($("#pw").value.trim()===CLAVE){$("#gate").classList.add("hide");$("#res").classList.remove("hide");loadRes();setInterval(loadRes,30000)}
+  if($("#pw").value.trim()===CLAVE){$("#gate").classList.add("hide");$("#res").classList.remove("hide");renderRes();loadRes();setInterval(loadRes,30000)}
   else $("#pwm").textContent="Contraseña incorrecta."
 }
 $("#pwb").onclick=unlock;$("#pw").addEventListener("keydown",e=>{if(e.key==="Enter")unlock()});
-renderRes();upd();
 </script>
 </body>
 </html>
