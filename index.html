@@ -60,6 +60,11 @@ th{background:var(--deep);color:#fff;text-align:left;padding:9px 10px;font-size:
 td{padding:9px 10px;border-bottom:1px solid #D5DEE3;vertical-align:top}td.n,th.n{text-align:right}
 details.d{margin-top:6px}details.d summary{cursor:pointer;color:var(--teal);font-size:13px;font-weight:800}
 details.d b{display:block;margin:8px 0 2px;font-size:12.5px}details.d ul{margin:0;padding-left:18px;color:#3F4B57;font-size:13px}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(8,40,56,.72);display:flex;align-items:center;justify-content:center;padding:20px}
+.modal .box{background:var(--teal);border:3px solid var(--yel);border-radius:16px;max-width:400px;width:100%;padding:28px 22px 22px;text-align:center;box-shadow:0 16px 40px rgba(0,0,0,.35)}
+.modal .ok{width:64px;height:64px;border-radius:50%;background:var(--yel);color:var(--ink);font:800 36px/64px 'Nunito',Arial,sans-serif;margin:0 auto 12px}
+.modal h2{margin:0 0 6px;font-size:22px;font-weight:800}.modal p{margin:0;color:#DDEFF6;font-size:15px}
+.modal .btn{margin-top:20px}
 .hide{display:none!important}
 footer{text-align:center;color:var(--deep);font-weight:700;font-size:12px;margin-top:18px}
 </style>
@@ -110,6 +115,7 @@ footer{text-align:center;color:var(--deep);font-weight:700;font-size:12px;margin
 </main>
 <footer>Summit ITDay · Instituto Tecnológico de Dosquebradas</footer>
 </div>
+<div id="modal" class="modal hide" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="box"><div class="ok" aria-hidden="true">✓</div><h2 id="mt">Calificación registrada con éxito</h2><p id="mp"></p><button class="btn" id="mb">Evaluar otro proyecto</button></div></div>
 <script>
 const API="https://script.google.com/macros/s/AKfycbzr8ejyWX6VnAvzvkjK3T0-bJpXVkYoWLE5Pd-kLFrdM-K3oTBlNBEB5Ygo1HeSqXof/exec";
 const CLAVE="notas_summit";
@@ -177,10 +183,22 @@ $("#go").addEventListener("click",async()=>{
   try{
     const r=await fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({project:p.n,modalidad:p.m.join(" / "),evaluador:ev,g,gTot,gPct:Math.round(gTot/30*1000)/10,gNivel:lvlP(gTot/30*100),fortaleza:$("#fo").value.trim(),recomendacion:$("#re").value.trim(),ind})});
     const j=await r.json();if(!j.ok)throw new Error(j.error);
-    setMsg("Evaluación de "+p.n+" guardada ("+ind.length+" estudiante"+(ind.length===1?"":"s")+"). Si la envía de nuevo con su nombre, se actualiza.");
+    setMsg("");showOk(p.n,ind.length);
   }catch(e){setMsg("No se pudo guardar. Revise su conexión e inténtelo de nuevo.",true)}
   $("#go").disabled=false;
 });
+
+function showOk(n,k){
+  $("#mp").textContent="Evaluación de "+n+" guardada ("+k+" estudiante"+(k===1?"":"s")+"). Gracias por su aporte.";
+  $("#modal").classList.remove("hide");$("#mb").focus();
+}
+function closeOk(){
+  $("#modal").classList.add("hide");setMsg("");
+  $("#pj").value="";$("#pj").dispatchEvent(new Event("change"));
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+$("#mb").onclick=closeOk;
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#modal").classList.contains("hide"))closeOk()});
 
 // Resultados
 function addList(d,title,items){if(!items.length)return;const b=document.createElement("b");b.textContent=title;const ul=document.createElement("ul");items.forEach(t=>{const li=document.createElement("li");li.textContent=t;ul.appendChild(li)});d.append(b,ul)}
